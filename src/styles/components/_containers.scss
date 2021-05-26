@@ -1,0 +1,38 @@
+@use "../abtracts" as *;
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    hsl(310, 29%, 10%),
+    hsl(325, 29%, 15%),
+    hsl(340, 29%, 20%)
+  );
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
+  @include d-flex(column, center, center);
+}
+
+.menu-expand {
+  @include d-flex(row, center, center);
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.requests-page {
+  max-width: 1080px;
+  height: 100vh;
+  position: relative;
+  margin: auto;
+}

@@ -1,0 +1,79 @@
+@use "../abtracts" as *;
+
+.slider-container {
+  width: 100%;
+  height: 100vh;
+  padding-top: 8rem;
+  z-index: 1;
+}
+
+.slick-slide {
+  position: relative;
+  display: flex !important;
+  @include d-flex(row, center, center);
+}
+
+.slide {
+  max-width: 600px;
+}
+
+.slick-track {
+  padding-bottom: 10rem;
+}
+
+.request-bg {
+  width: 100%;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.419);
+}
+
+.letter-container {
+  margin: auto;
+  position: relative;
+  width: 95%;
+}
+
+.letter-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: $break-iphone) {
+  .letter-content {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: $break-tablet) {
+  .letter-content {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: $break-laptop) {
+  .letter-content {
+    font-size: 1.5rem;
+  }
+}
+
+.letter-btn-bar {
+  position: absolute;
+  bottom: -6rem;
+  width: 100%;
+  z-index: 9999;
+  @include d-flex(row, center, center);
+  .material-icons {
+    margin-right: 0;
+  }
+  button {
+    margin-right: 1rem;
+    &:focus {
+      transform: none;
+      border-color: white;
+    }
+  }
+  button:last-child {
+    margin-right: 0;
+  }
+}

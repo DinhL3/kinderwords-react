@@ -1,9 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@use "./components/stars.scss";
+@use "./components/containers.scss";
+@use "./components/forms.scss";
+@use "./components/texts.scss";
+@use "./components/slider.scss";
+@use "./abtracts" as *;
 
 body {
   padding: 0;
   margin: 0;
-  background-color: #2f1a2b;
+  cursor: default !important;
+  user-select: none;
+  font-family: $font;
+  overflow: hidden;
 }
 
 h1,
@@ -12,9 +20,10 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span {
   padding: 0;
   margin: 0;
-  font-family: "Comic Neue", cursive;
+  font-family: $font;
   color: white;
 }

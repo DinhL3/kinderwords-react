@@ -1,0 +1,39 @@
+@use "../abtracts" as *;
+
+.default {
+  background: transparent;
+  border: $border;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
+  font-family: $font;
+  outline: none;
+  padding: 0.5rem;
+  transition: 0.5s;
+}
+
+.btn {
+  margin-bottom: 1rem;
+  @include d-flex(row, center, center);
+  &:hover {
+    transform: scale(1.15);
+  }
+  &:focus {
+    transform: scale(1.15);
+    border-color: $red;
+  }
+}
+
+.btn--back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 0.5rem;
+}
+
+.link {
+  border: none;
+  &:focus {
+    color: $red !important;
+  }
+}

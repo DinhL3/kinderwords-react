@@ -1,0 +1,13 @@
+@use "../abtracts" as *;
+@use "./buttons";
+
+.form {
+  @include d-flex(column, center, center);
+  input {
+    width: 20rem;
+    margin-bottom: 0.7rem;
+    &:focus {
+      border-color: $red;
+    }
+  }
+}
