@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { requestActions } from "../redux/actions/request.actions";
@@ -20,11 +19,19 @@ const Requests = () => {
     dispatch(requestActions.getRequests());
   }, []);
 
+  const sliderRef = useRef();
+  const goPrevious = () => {
+    sliderRef.current.slickPrev();
+  };
+  const goNext = () => {
+    sliderRef.current.slickNext();
+  };
+
   const settings = {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 250,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -37,7 +44,7 @@ const Requests = () => {
         <BeatLoader color={"white"} />
       ) : (
         <div className="slider-container">
-          <Slider {...settings}>
+          <Slider ref={sliderRef} {...settings}>
             {requests.map((request) => (
               <div className="slide" key={request._id}>
                 <div className="letter-container">
@@ -45,11 +52,15 @@ const Requests = () => {
                   <p className="letter-content">{request.content}</p>
                   <div className="letter-btn-bar">
                     <button className="default btn">
-                      <span className="material-icons">arrow_left</span>
+                      <span className="material-icons" onClick={goPrevious}>
+                        arrow_left
+                      </span>
                     </button>
                     <button className="default btn">Reply</button>
                     <button className="default btn">
-                      <span className="material-icons">arrow_right</span>
+                      <span className="material-icons" onClick={goNext}>
+                        arrow_right
+                      </span>
                     </button>
                   </div>
                 </div>
