@@ -3,26 +3,35 @@
 .slider-container {
   width: 100%;
   height: 100vh;
-  padding-top: 8rem;
   z-index: 1;
+  position: relative;
+}
+
+.slick-slider {
+  min-height: 360px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slick-list {
+  overflow: visible !important;
 }
 
 .slick-slide {
   position: relative;
   display: flex !important;
   @include d-flex(row, center, center);
+  max-height: 100vh;
 }
 
 .slide {
   max-width: 600px;
 }
 
-.slick-track {
-  padding-bottom: 10rem;
-}
-
 .request-bg {
   width: 100%;
+  max-width: 100vmin;
   box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.419);
 }
 
@@ -30,6 +39,7 @@
   margin: auto;
   position: relative;
   width: 95%;
+  max-height: 100vh;
 }
 
 .letter-content {
@@ -39,15 +49,28 @@
   transform: translate(-50%, -50%);
 }
 
-@media (min-width: $break-iphone) {
-  .letter-content {
-    font-size: 1.1rem;
+.reply {
+  p {
+    color: $blue !important;
+    font-weight: 600;
   }
 }
 
-@media (min-width: $break-tablet) {
+@media (min-width: $break-phone) and (max-width: $break-tablet) {
   .letter-content {
-    font-size: 1.3rem;
+    font-size: 1rem;
+  }
+  .my-request {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: $break-tablet) and (max-width: $break-laptop) {
+  .letter-content {
+    font-size: 1.4rem;
+  }
+  .my-request {
+    font-size: 0.8rem;
   }
 }
 
@@ -55,11 +78,32 @@
   .letter-content {
     font-size: 1.5rem;
   }
+  .my-request {
+    font-size: 1rem;
+  }
+}
+
+@media (min-height: $break-phone) and (max-height: $break-tablet) {
+  .letter-content {
+    font-size: 1rem !important;
+  }
+}
+
+@media (min-height: $break-tablet) and (max-height: $break-laptop) {
+  .letter-content {
+    font-size: 1.05rem !important;
+  }
+}
+
+@media (max-height: $break-laptop) {
+  .my-request {
+    display: none;
+  }
 }
 
 .letter-btn-bar {
   position: absolute;
-  bottom: -6rem;
+  bottom: 0;
   width: 100%;
   z-index: 9999;
   @include d-flex(row, center, center);
@@ -68,12 +112,20 @@
   }
   button {
     margin-right: 1rem;
-    &:focus {
-      transform: none;
-      border-color: white;
-    }
   }
   button:last-child {
     margin-right: 0;
   }
+}
+
+.signature {
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.my-request {
+  width: 89%;
+  margin: auto;
+  margin-bottom: 1rem;
+  position: relative;
 }

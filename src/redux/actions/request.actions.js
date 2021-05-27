@@ -7,7 +7,7 @@ const getRequests = () => async (dispatch) => {
   try {
     dispatch({ type: types.REQUESTS_REQUEST_START, payload: null });
     const res = await api.get(`/requests`);
-    console.log("Request fetched: ", res.data.data);
+    // console.log("Request fetched: ", res.data.data);
     dispatch({
       type: types.REQUESTS_REQUEST_SUCCESS,
       payload: res.data.data,

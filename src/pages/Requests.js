@@ -31,7 +31,7 @@ const Requests = () => {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 1000,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -49,7 +49,12 @@ const Requests = () => {
               <div className="slide" key={request._id}>
                 <div className="letter-container">
                   <img className="request-bg" src="request.png" />
-                  <p className="letter-content">{request.content}</p>
+                  <div className="letter-content">
+                    <p>{request.content}</p>
+                    <br />
+                    <p className="signature">- {request.user.name[0]}</p>
+                  </div>
+
                   <div className="letter-btn-bar">
                     <button className="default btn">
                       <span className="material-icons" onClick={goPrevious}>
