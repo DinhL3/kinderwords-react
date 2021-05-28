@@ -34,7 +34,18 @@
 
 .link {
   border: none;
+  margin-bottom: 0;
   &:focus {
     color: $red !important;
   }
+}
+
+.container--flex {
+  .btn:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.btn--settings {
+  margin-bottom: 0 !important;
 }

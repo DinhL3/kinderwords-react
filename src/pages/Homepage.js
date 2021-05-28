@@ -39,11 +39,13 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="page">
+    <div className="container">
       {loadingUser ? (
-        <BeatLoader color={"white"} />
+        <div className="container--flex">
+          <BeatLoader color={"white"} />
+        </div>
       ) : (
-        <div className="container">
+        <div className="container--flex">
           <span className="page-header">Welcome, {user.name}</span>
           <button
             className="default btn btn--menu"
@@ -62,7 +64,10 @@ const Homepage = () => {
             <span className="material-icons">mail</span>
             Inbox
           </button>
-          <button className="default btn btn--menu" {...getToggleProps()}>
+          <button
+            className="default btn btn--menu btn--settings"
+            {...getToggleProps()}
+          >
             <span className="material-icons">settings</span>
             Settings
           </button>

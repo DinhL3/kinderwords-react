@@ -4,6 +4,7 @@
 @use "./components/texts.scss";
 @use "./components/slider.scss";
 @use "./abtracts" as *;
+@use "./components/media.scss";
 
 body {
   padding: 0;
@@ -11,7 +12,8 @@ body {
   cursor: default !important;
   user-select: none;
   font-family: $font;
-  overflow: hidden;
+  height: 100%;
+  overflow: hidden !important;
 }
 
 h1,

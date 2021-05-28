@@ -38,11 +38,11 @@ const Login = () => {
   }, [dispatch, history, redirectTo]);
 
   return (
-    <div className="container">
+    <div className="container--flex">
       <h1 className="title">[Kinder Words]</h1>
       <h3 className="subtitle">write nice letters to real people</h3>
       <form
-        className="form"
+        className="form--flex form--login"
         // autoComplete="off"
         onSubmit={handleLoginSubmit}
       >

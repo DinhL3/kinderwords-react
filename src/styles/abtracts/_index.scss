@@ -2,10 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 @mixin d-flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+  display: flex !important;
+  flex-direction: $direction !important;
+  justify-content: $justify !important;
+  align-items: $align !important;
+}
+
+@mixin container {
+  height: 100vh;
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
 }
 
 $font: "Comic Neue", cursive;
@@ -15,4 +22,7 @@ $blue: #374759;
 
 $break-phone: 320px;
 $break-tablet: 480px;
+$break-tablet-lg: 624px;
 $break-laptop: 768px;
+
+$box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.419);

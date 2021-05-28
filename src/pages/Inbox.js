@@ -31,17 +31,19 @@ const Inbox = () => {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 800,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
   };
 
   return (
-    <div className="requests-page">
+    <div className="container">
       <BackBtn />
       {loadingReplies ? (
-        <BeatLoader color={"white"} />
+        <div className="container--flex">
+          <BeatLoader color={"white"} />
+        </div>
       ) : (
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>

@@ -8,7 +8,7 @@
 }
 
 .slick-slider {
-  min-height: 360px;
+  min-height: 350px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -20,7 +20,6 @@
 
 .slick-slide {
   position: relative;
-  display: flex !important;
   @include d-flex(row, center, center);
   max-height: 100vh;
 }
@@ -32,13 +31,13 @@
 .request-bg {
   width: 100%;
   max-width: 100vmin;
-  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.419);
+  box-shadow: $box-shadow;
 }
 
 .letter-container {
   margin: auto;
   position: relative;
-  width: 95%;
+  width: 100%;
   max-height: 100vh;
 }
 
@@ -56,51 +55,6 @@
   }
 }
 
-@media (min-width: $break-phone) and (max-width: $break-tablet) {
-  .letter-content {
-    font-size: 1rem;
-  }
-  .my-request {
-    font-size: 0.7rem;
-  }
-}
-
-@media (min-width: $break-tablet) and (max-width: $break-laptop) {
-  .letter-content {
-    font-size: 1.4rem;
-  }
-  .my-request {
-    font-size: 0.8rem;
-  }
-}
-
-@media (min-width: $break-laptop) {
-  .letter-content {
-    font-size: 1.5rem;
-  }
-  .my-request {
-    font-size: 1rem;
-  }
-}
-
-@media (min-height: $break-phone) and (max-height: $break-tablet) {
-  .letter-content {
-    font-size: 1rem !important;
-  }
-}
-
-@media (min-height: $break-tablet) and (max-height: $break-laptop) {
-  .letter-content {
-    font-size: 1.05rem !important;
-  }
-}
-
-@media (max-height: $break-laptop) {
-  .my-request {
-    display: none;
-  }
-}
-
 .letter-btn-bar {
   position: absolute;
   bottom: 0;
@@ -109,6 +63,11 @@
   @include d-flex(row, center, center);
   .material-icons {
     margin-right: 0;
+  }
+  .btn--reply {
+    .material-icons {
+      margin-right: 0.3em;
+    }
   }
   button {
     margin-right: 1rem;
@@ -121,11 +80,4 @@
 .signature {
   text-transform: uppercase;
   text-align: right;
-}
-
-.my-request {
-  width: 89%;
-  margin: auto;
-  margin-bottom: 1rem;
-  position: relative;
 }

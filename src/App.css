@@ -74,30 +74,31 @@
   max-width: 1080px;
   margin: auto;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.menu-expand {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.container--flex {
+  height: 100vh;
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
-.page {
+.page-full {
   width: 100vw;
   height: 100vh;
   position: relative;
 }
 
-.requests-page {
-  max-width: 1080px;
-  height: 100vh;
-  position: relative;
-  margin: auto;
+.menu-expand {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 1rem;
 }
 
 .default {
@@ -114,10 +115,10 @@
 
 .btn {
   margin-bottom: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 .btn:hover {
   transform: scale(1.15);
@@ -137,23 +138,88 @@
 
 .link {
   border: none;
+  margin-bottom: 0;
 }
 .link:focus {
   color: #e77171 !important;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.container--flex .btn:last-child {
+  margin-bottom: 0 !important;
 }
-.form input {
+
+.btn--settings {
+  margin-bottom: 0 !important;
+}
+
+.form--login input {
   width: 20rem;
   margin-bottom: 0.7rem;
 }
-.form input:focus {
+.form--login input:focus {
   border-color: #e77171;
+}
+
+.form--flex {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative;
+}
+
+.form--request {
+  min-height: 350px;
+  min-width: 350px;
+  width: 100vmin;
+  max-width: 600px;
+}
+.form--request .btn {
+  position: absolute;
+  bottom: 1rem;
+  z-index: 999;
+}
+
+.form__square {
+  width: 100%;
+  max-width: 100vmin;
+  min-height: 350px;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  background-position: center center !important;
+  position: relative;
+}
+
+.form__square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.419);
+}
+
+.form__input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: 62%;
+  resize: none;
+  font-family: "Comic Neue", cursive !important;
+  color: white;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+.form__input::placeholder {
+  color: #374759 !important;
+}
+
+.form__signature {
+  position: absolute;
+  bottom: 5em;
+  right: 5em;
+  text-transform: uppercase;
 }
 
 .title {
@@ -162,6 +228,7 @@
 
 .subtitle {
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .page-header {
@@ -177,13 +244,6 @@
   margin-right: 0.5rem;
 }
 
-.css-1xdhyk6 {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-
 .slider-container {
   width: 100%;
   height: 100vh;
@@ -192,7 +252,7 @@
 }
 
 .slick-slider {
-  min-height: 360px;
+  min-height: 350px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -205,10 +265,9 @@
 .slick-slide {
   position: relative;
   display: flex !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
   max-height: 100vh;
 }
 
@@ -225,7 +284,7 @@
 .letter-container {
   margin: auto;
   position: relative;
-  width: 95%;
+  width: 100%;
   max-height: 100vh;
 }
 
@@ -241,60 +300,21 @@
   font-weight: 600;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .letter-content {
-    font-size: 1rem;
-  }
-
-  .my-request {
-    font-size: 0.7rem;
-  }
-}
-@media (min-width: 480px) and (max-width: 768px) {
-  .letter-content {
-    font-size: 1.4rem;
-  }
-
-  .my-request {
-    font-size: 0.8rem;
-  }
-}
-@media (min-width: 768px) {
-  .letter-content {
-    font-size: 1.5rem;
-  }
-
-  .my-request {
-    font-size: 1rem;
-  }
-}
-@media (min-height: 320px) and (max-height: 480px) {
-  .letter-content {
-    font-size: 1rem !important;
-  }
-}
-@media (min-height: 480px) and (max-height: 768px) {
-  .letter-content {
-    font-size: 1.05rem !important;
-  }
-}
-@media (max-height: 768px) {
-  .my-request {
-    display: none;
-  }
-}
 .letter-btn-bar {
   position: absolute;
   bottom: 0;
   width: 100%;
   z-index: 9999;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 .letter-btn-bar .material-icons {
   margin-right: 0;
+}
+.letter-btn-bar .btn--reply .material-icons {
+  margin-right: 0.3em;
 }
 .letter-btn-bar button {
   margin-right: 1rem;
@@ -308,20 +328,132 @@
   text-align: right;
 }
 
-.my-request {
-  width: 89%;
-  margin: auto;
-  margin-bottom: 1rem;
-  position: relative;
-}
+@media (min-width: 320px) and (max-width: 480px) {
+  .letter-content {
+    font-size: 1rem;
+  }
 
+  .my-request {
+    font-size: 0.8rem !important;
+  }
+
+  .letter-btn-bar button,
+.letter-btn-bar span {
+    font-size: 1rem;
+  }
+
+  .form--request .btn {
+    font-size: 1rem !important;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .letter-content {
+    font-size: 1.4rem;
+  }
+
+  .my-request {
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 3rem !important;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 768px) {
+  .letter-content {
+    font-size: 1.5rem;
+  }
+
+  .my-request {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1.5rem;
+  }
+}
+@media (min-height: 320px) and (max-height: 480px) {
+  .letter-content {
+    font-size: 1rem !important;
+  }
+
+  .letter-btn-bar button,
+.letter-btn-bar span {
+    font-size: 1rem;
+  }
+
+  .my-request {
+    font-size: 0.8rem !important;
+  }
+
+  .form--request .btn {
+    font-size: 1rem !important;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1rem;
+  }
+}
+@media (min-height: 480px) and (max-height: 768px) {
+  .letter-content {
+    font-size: 1.2rem;
+  }
+
+  .my-request {
+    font-size: 1rem;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1.3rem;
+  }
+}
+@media (max-height: 768px) {
+  .my-request {
+    position: absolute;
+    z-index: 9999;
+    border: none;
+    padding: 1em;
+    top: 0;
+  }
+}
+@media (min-height: 768px) {
+  .my-request {
+    width: 90%;
+    margin: auto;
+    padding: 0.6em;
+    margin-bottom: 1rem;
+  }
+
+  .form__input,
+.form__signature {
+    font-size: 1.5rem;
+  }
+}
 body {
   padding: 0;
   margin: 0;
   cursor: default !important;
   user-select: none;
   font-family: "Comic Neue", cursive;
-  overflow: hidden;
+  height: 100%;
+  overflow: hidden !important;
 }
 
 h1,

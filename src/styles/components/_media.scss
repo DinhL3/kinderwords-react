@@ -1,0 +1,121 @@
+@use "../abtracts" as *;
+
+// WIDTH
+
+@media (min-width: $break-phone) and (max-width: $break-tablet) {
+  .letter-content {
+    font-size: 1rem;
+  }
+  .my-request {
+    font-size: 0.8rem !important;
+  }
+  .letter-btn-bar {
+    button,
+    span {
+      font-size: 1rem;
+    }
+  }
+  .form--request {
+    .btn {
+      font-size: 1rem !important;
+    }
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1rem !important;
+  }
+}
+
+@media (min-width: $break-tablet) and (max-width: $break-laptop) {
+  .letter-content {
+    font-size: 1.4rem;
+  }
+  .my-request {
+    font-size: 0.8rem;
+  }
+  .title {
+    font-size: 3rem !important;
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: $break-laptop) {
+  .letter-content {
+    font-size: 1.5rem;
+  }
+  .my-request {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1.5rem;
+  }
+}
+
+// HEIGHT
+
+@media (min-height: $break-phone) and (max-height: $break-tablet) {
+  .letter-content {
+    font-size: 1rem !important;
+  }
+  .letter-btn-bar {
+    button,
+    span {
+      font-size: 1rem;
+    }
+  }
+  .my-request {
+    font-size: 0.8rem !important;
+  }
+  .form--request {
+    .btn {
+      font-size: 1rem !important;
+    }
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1rem;
+  }
+}
+
+@media (min-height: $break-tablet) and (max-height: $break-laptop) {
+  .letter-content {
+    font-size: 1.2rem;
+  }
+  .my-request {
+    font-size: 1rem;
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-height: $break-laptop) {
+  .my-request {
+    position: absolute;
+    z-index: 9999;
+    border: none;
+    padding: 1em;
+    top: 0;
+  }
+}
+
+@media (min-height: $break-laptop) {
+  .my-request {
+    width: 90%;
+    margin: auto;
+    padding: 0.6em;
+    margin-bottom: 1rem;
+  }
+  .form__input,
+  .form__signature {
+    font-size: 1.5rem;
+  }
+} ;

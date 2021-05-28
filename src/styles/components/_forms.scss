@@ -1,8 +1,7 @@
 @use "../abtracts" as *;
 @use "./buttons";
 
-.form {
-  @include d-flex(column, center, center);
+.form--login {
   input {
     width: 20rem;
     margin-bottom: 0.7rem;
@@ -10,4 +9,66 @@
       border-color: $red;
     }
   }
+}
+
+// Working with create request and reply starts from here
+.form--flex {
+  @include d-flex(column, center, center);
+  position: relative;
+}
+
+.form--request {
+  min-height: 350px;
+  min-width: 350px;
+  // height: 100vh;
+  width: 100vmin;
+  max-width: 600px;
+  .btn {
+    position: absolute;
+    bottom: 1rem;
+    z-index: 999;
+  }
+}
+
+.form__square {
+  width: 100%;
+  max-width: 100vmin;
+  min-height: 350px;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  background-position: center center !important;
+  position: relative;
+}
+
+// this snipper make square
+.form__square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  box-shadow: $box-shadow;
+}
+
+.form__input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: 62%;
+  resize: none;
+  font-family: $font !important;
+  color: white;
+  outline: none;
+  border: none;
+  background: transparent;
+  &::placeholder {
+    color: $blue !important;
+  }
+}
+
+.form__signature {
+  position: absolute;
+  bottom: 5em;
+  right: 5em;
+  text-transform: uppercase;
 }

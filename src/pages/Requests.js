@@ -31,17 +31,19 @@ const Requests = () => {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 800,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
   };
 
   return (
-    <div className="requests-page">
+    <div className="container">
       <BackBtn />
       {loadingRequests ? (
-        <BeatLoader color={"white"} />
+        <div className="container--flex">
+          <BeatLoader color={"white"} className="spinner" />
+        </div>
       ) : (
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>
@@ -61,7 +63,9 @@ const Requests = () => {
                         arrow_left
                       </span>
                     </button>
-                    <button className="default btn">Reply</button>
+                    <button className="default btn btn--reply">
+                      <span className="material-icons">reply</span>Reply
+                    </button>
                     <button className="default btn">
                       <span className="material-icons" onClick={goNext}>
                         arrow_right

@@ -34,12 +34,12 @@ const Register = () => {
   }, [dispatch, history, redirectTo]);
 
   return (
-    <div className="container">
+    <div className="container--flex">
       <BackBtn />
       <h1 className="title">[Kinder Words]</h1>
       <h3 className="subtitle">create your account</h3>
       <form
-        className="form"
+        className="form--flex form--login"
         // autoComplete="off"
         onSubmit={handleRegisterSubmit}
       >
