@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { requestActions } from "../redux/actions/request.actions";
 import BackBtn from "../components/BackBtn";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -12,12 +13,17 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Requests = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const requests = useSelector((state) => state.request.requests);
   const loadingRequests = useSelector((state) => state.request.loadingRequests);
 
   useEffect(() => {
     dispatch(requestActions.getRequests());
   }, []);
+
+  // const handleReplyClick = (id) => {
+  //   history.push(`create_reply/${id}`);
+  // };
 
   const sliderRef = useRef();
   const goPrevious = () => {
@@ -50,7 +56,10 @@ const Requests = () => {
             {requests.map((request) => (
               <div className="slide" key={request._id}>
                 <div className="letter-container">
-                  <img className="request-bg" src="request.png" />
+                  <img
+                    className="request-bg"
+                    src={`${process.env.PUBLIC_URL}/request.png`}
+                  />
                   <div className="letter-content">
                     <p>{request.content}</p>
                     <br />
@@ -63,7 +72,12 @@ const Requests = () => {
                         arrow_left
                       </span>
                     </button>
-                    <button className="default btn btn--reply">
+                    <button
+                      className="default btn btn--reply"
+                      onClick={() =>
+                        history.push(`create_reply/${request._id}`)
+                      }
+                    >
                       <span className="material-icons">reply</span>Reply
                     </button>
                     <button className="default btn">

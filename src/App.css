@@ -347,7 +347,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1rem !important;
   }
 }
@@ -365,7 +366,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1.3rem;
   }
 }
@@ -383,7 +385,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1.5rem;
   }
 }
@@ -406,7 +409,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1rem;
   }
 }
@@ -420,7 +424,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1.3rem;
   }
 }
@@ -442,7 +447,8 @@
   }
 
   .form__input,
-.form__signature {
+.form__signature,
+.general-scaling-text {
     font-size: 1.5rem;
   }
 }

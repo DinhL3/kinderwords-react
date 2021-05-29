@@ -24,7 +24,7 @@ const requestReducer = (state = initialState, action) => {
       break;
 
     case types.NEWREQUEST_REQUEST_SUCCESS:
-      state.newRequests.push(payload);
+      state.newRequest.push(payload);
       state.loading = false;
       break;
 

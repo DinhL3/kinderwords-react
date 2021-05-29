@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
@@ -44,6 +45,14 @@ const Inbox = () => {
         <div className="container--flex">
           <BeatLoader color={"white"} />
         </div>
+      ) : replies.length === 0 ? (
+        <div className="container--flex">
+          <p className="general-scaling-text">
+            You don&apos;t have any replies yet
+          </p>
+          <p className="general-scaling-text">Please come back later</p>
+          <p className="general-scaling-text">₍ ᐢ. ̫ .⑅ᐢ ₎</p>
+        </div>
       ) : (
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>
@@ -54,7 +63,10 @@ const Inbox = () => {
                   <p>{reply.request.content}</p>
                 </div>
                 <div className="letter-container">
-                  <img className="request-bg" src="reply.png" />
+                  <img
+                    className="request-bg"
+                    src={`${process.env.PUBLIC_URL}/reply.png`}
+                  />
                   <div className="letter-content reply">
                     <p>{reply.content}</p>
                     <p className="signature">- {reply.user.name[0]}</p>

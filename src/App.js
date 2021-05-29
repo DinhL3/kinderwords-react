@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Requests from "./pages/Requests";
 import CreateRequest from "./pages/CreateRequest";
 import Inbox from "./pages/Inbox";
+import CreateReply from "./pages/CreateReply";
 
 function App() {
   return (
@@ -28,6 +29,11 @@ function App() {
             component={CreateRequest}
           />
           <ProtectedRoute path="/inbox" exact component={Inbox} />
+          <ProtectedRoute
+            path="/create_reply/:id"
+            exact
+            component={CreateReply}
+          />
         </Switch>
       </Router>
     </div>
