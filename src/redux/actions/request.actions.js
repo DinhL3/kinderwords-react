@@ -2,7 +2,6 @@
 import api from "../api";
 import * as types from "../constants/request.constants";
 import { routeActions } from "./route.actions";
-import * as toastSettings from "../constants/toast.constants";
 import { toast } from "react-toastify";
 
 const getRequests = () => async (dispatch) => {
@@ -30,10 +29,7 @@ const newRequest = (data) => async (dispatch) => {
       type: types.NEWREQUEST_REQUEST_SUCCESS,
       payload: null,
     });
-    toast.success(
-      "Your request is sent. Someone will reply soon!",
-      toastSettings.toastSettings
-    );
+    toast.success("Your request is sent. Someone will reply soon!");
   } catch (err) {
     dispatch({ type: types.NEWREQUEST_REQUEST_FAIL, payload: null });
     console.log("Error posting new request", err.message);

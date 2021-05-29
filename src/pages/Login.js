@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { authActions } from "../redux/actions/auth.actions";
 import { routeActions } from "../redux/actions/route.actions";
 
+import { motion } from "framer-motion";
+
 const Login = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -38,43 +40,50 @@ const Login = () => {
   }, [dispatch, history, redirectTo]);
 
   return (
-    <div className="container--flex">
-      <h1 className="title">[Kinder Words]</h1>
-      <h3 className="subtitle">write nice letters to real people</h3>
-      <form
-        className="form--flex form--login"
-        // autoComplete="off"
-        onSubmit={handleLoginSubmit}
-      >
-        <input
-          type="email"
-          placeholder="Email"
-          id="email"
-          name="email"
-          required
-          ref={emailInputRef}
-          className="default"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-          required
-          ref={passwordInputRef}
-          className="default"
-        />
-        <button className="default btn" type="submit">
-          Log In
-        </button>
-        <span>
-          Don&apos;t have an account?{" "}
-          <span className="default btn link" onClick={handleRegisterClick}>
-            Register
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0.5 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="container--flex">
+        <h1 className="title">[Kinder Words]</h1>
+        <h3 className="subtitle">write nice letters to real people</h3>
+        <form
+          className="form--flex form--login"
+          // autoComplete="off"
+          onSubmit={handleLoginSubmit}
+        >
+          <input
+            type="email"
+            placeholder="Email"
+            id="email"
+            name="email"
+            required
+            ref={emailInputRef}
+            className="default"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            required
+            ref={passwordInputRef}
+            className="default"
+          />
+          <button className="default btn" type="submit">
+            Log In
+          </button>
+          <span>
+            Don&apos;t have an account?{" "}
+            <span className="default btn link" onClick={handleRegisterClick}>
+              Register
+            </span>
           </span>
-        </span>
-      </form>
-    </div>
+        </form>
+      </div>
+    </motion.div>
   );
 };
 

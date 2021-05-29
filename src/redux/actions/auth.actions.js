@@ -1,7 +1,6 @@
 import { routeActions } from "./route.actions";
 import api from "../api";
 import * as types from "../constants/auth.constants";
-import * as toastSettings from "../constants/toast.constants";
 import { toast } from "react-toastify";
 
 const login = (data) => async (dispatch) => {
@@ -17,14 +16,11 @@ const login = (data) => async (dispatch) => {
       type: types.LOGIN_REQUEST_SUCCESS,
       payload: res.data.data.token,
     });
-    toast.success("Logged in!", toastSettings.toastSettings);
+    toast.success("Logged in!");
   } catch (error) {
     dispatch({ type: types.LOGIN_REQUEST_FAIL, payload: null });
     console.log(error.message);
-    toast.error(
-      "Wrong email or password. Please try again.",
-      toastSettings.toastSettings
-    );
+    toast.error("Wrong email or password. Please try again.");
   }
 };
 
@@ -37,10 +33,7 @@ const register = (data) => async (dispatch) => {
     dispatch(routeActions.redirect("/login"));
 
     dispatch({ type: types.REGISTER_REQUEST_SUCCESS, payload: null });
-    toast.success(
-      "Account created! Please log in.",
-      toastSettings.toastSettings
-    );
+    toast.success("Account created! Please log in.");
   } catch (err) {
     dispatch({ type: types.REGISTER_REQUEST_FAIL, payload: null });
     console.log("REGISTER ERROR: ", err.message);

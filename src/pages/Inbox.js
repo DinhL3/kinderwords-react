@@ -11,6 +11,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { motion } from "framer-motion";
+
 const Inbox = () => {
   const dispatch = useDispatch();
   const replies = useSelector((state) => state.reply.replies);
@@ -39,54 +41,61 @@ const Inbox = () => {
   };
 
   return (
-    <div className="container">
-      <BackBtn />
-      {loadingReplies ? (
-        <div className="container--flex">
-          <BeatLoader color={"white"} />
-        </div>
-      ) : replies.length === 0 ? (
-        <div className="container--flex opacity">
-          <p className="general-scaling-text">
-            You don&apos;t have any replies yet
-          </p>
-          <p className="general-scaling-text">Please come back later</p>
-          <p className="general-scaling-text">₍ ᐢ. ̫ .⑅ᐢ ₎</p>
-        </div>
-      ) : (
-        <div className="slider-container">
-          <Slider ref={sliderRef} {...settings}>
-            {replies.map((reply) => (
-              <div className="slide" key={reply._id}>
-                <div className="default my-request">
-                  <p>Your Request:</p>
-                  <p>{reply.request.content}</p>
-                </div>
-                <div className="letter-container">
-                  <img
-                    className="request-bg"
-                    src={`${process.env.PUBLIC_URL}/reply.png`}
-                  />
-                  <div className="letter-content reply">
-                    <p>{reply.content}</p>
-                    <p className="signature">- {reply.user.name[0]}</p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="container">
+        <BackBtn />
+        {loadingReplies ? (
+          <div className="container--flex">
+            <BeatLoader color={"white"} />
+          </div>
+        ) : replies.length === 0 ? (
+          <div className="container--flex opacity">
+            <p className="general-scaling-text">
+              You don&apos;t have any replies yet
+            </p>
+            <p className="general-scaling-text">Please come back later</p>
+            <p className="general-scaling-text">₍ ᐢ. ̫ .⑅ᐢ ₎</p>
+          </div>
+        ) : (
+          <div className="slider-container">
+            <Slider ref={sliderRef} {...settings}>
+              {replies.map((reply) => (
+                <div className="slide" key={reply._id}>
+                  <div className="default my-request">
+                    <p>Your Request:</p>
+                    <p>{reply.request.content}</p>
                   </div>
+                  <div className="letter-container">
+                    <img
+                      className="request-bg"
+                      src={`${process.env.PUBLIC_URL}/reply.png`}
+                    />
+                    <div className="letter-content reply">
+                      <p>{reply.content}</p>
+                      <p className="signature">- {reply.user.name[0]}</p>
+                    </div>
 
-                  <div className="letter-btn-bar">
-                    <button className="default btn" onClick={goPrevious}>
-                      <span className="material-icons">arrow_left</span>
-                    </button>
-                    <button className="default btn" onClick={goNext}>
-                      <span className="material-icons">arrow_right</span>
-                    </button>
+                    <div className="letter-btn-bar">
+                      <button className="default btn" onClick={goPrevious}>
+                        <span className="material-icons">arrow_left</span>
+                      </button>
+                      <button className="default btn" onClick={goNext}>
+                        <span className="material-icons">arrow_right</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      )}
-    </div>
+              ))}
+            </Slider>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 

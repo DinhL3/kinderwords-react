@@ -35,8 +35,12 @@
 .link {
   border: none;
   margin-bottom: 0;
+
   &:focus {
     color: $red !important;
+  }
+  &:hover {
+    color: $red;
   }
 }
 

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { userActions } from "../redux/actions/user.actions";
-import * as toastSettings from "../redux/constants/toast.constants";
 import api from "../redux/api";
 import { toast } from "react-toastify";
 
 import BeatLoader from "react-spinners/BeatLoader";
 import useCollapse from "react-collapsed";
+
+import { motion } from "framer-motion";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Homepage = () => {
     localStorage.clear();
     delete api.defaults.headers.common["authorization"];
     history.push("/");
-    toast.error("You are logged out.", toastSettings.toastSettings);
+    toast.error("You are logged out.");
   };
 
   const handleViewRequestsClick = () => history.push("/requests");
@@ -42,51 +43,61 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="container">
-      {loadingUser ? (
-        <div className="container--flex">
-          <BeatLoader color={"white"} />
-        </div>
-      ) : (
-        <div className="container--flex">
-          <span className="page-header">Welcome, {user.name}</span>
-          <button
-            className="default btn btn--menu"
-            onClick={handleViewRequestsClick}
-          >
-            <span className="material-icons">search</span>View Requests
-          </button>
-          <button
-            className="default btn btn--menu"
-            onClick={handleCreateRequestClick}
-          >
-            <span className="material-icons">edit</span>
-            Create Request
-          </button>
-          <button className="default btn btn--menu" onClick={handleInboxClick}>
-            <span className="material-icons">mail</span>
-            Inbox
-          </button>
-          <button
-            className="default btn btn--menu btn--settings"
-            {...getToggleProps()}
-          >
-            <span className="material-icons">settings</span>
-            Settings
-          </button>
-          <div {...getCollapseProps()}>
-            {renderChildren && (
-              <div className="menu-expand" onClick={handleLogOut}>
-                <button className="default btn btn--menu">
-                  <span className="material-icons">logout</span>
-                  Log Out
-                </button>
-              </div>
-            )}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="container">
+        {loadingUser ? (
+          <div className="container--flex">
+            <BeatLoader color={"white"} />
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div className="container--flex">
+            <span className="page-header">Welcome, {user.name}</span>
+            <button
+              className="default btn btn--menu"
+              onClick={handleViewRequestsClick}
+            >
+              <span className="material-icons">search</span>View Requests
+            </button>
+            <button
+              className="default btn btn--menu"
+              onClick={handleCreateRequestClick}
+            >
+              <span className="material-icons">edit</span>
+              Create Request
+            </button>
+            <button
+              className="default btn btn--menu"
+              onClick={handleInboxClick}
+            >
+              <span className="material-icons">mail</span>
+              Inbox
+            </button>
+            <button
+              className="default btn btn--menu btn--settings"
+              {...getToggleProps()}
+            >
+              <span className="material-icons">settings</span>
+              Settings
+            </button>
+            <div {...getCollapseProps()}>
+              {renderChildren && (
+                <div className="menu-expand" onClick={handleLogOut}>
+                  <button className="default btn btn--menu">
+                    <span className="material-icons">logout</span>
+                    Log Out
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 

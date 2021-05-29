@@ -151,6 +151,9 @@
 .link:focus {
   color: #e77171 !important;
 }
+.link:hover {
+  color: #e77171;
+}
 
 .container--flex .btn:last-child {
   margin-bottom: 0 !important;
