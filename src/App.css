@@ -460,6 +460,14 @@
     font-size: 1.5rem;
   }
 }
+.Toastify__toast {
+  background: transparent !important;
+  font-family: "Comic Neue", cursive !important;
+  border: 2px solid white !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+}
+
 body {
   padding: 0;
   margin: 0;

@@ -1,0 +1,9 @@
+@use "../abtracts" as *;
+
+.Toastify__toast {
+  background: transparent !important;
+  font-family: $font !important;
+  border: $border !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+}

@@ -1,19 +1,12 @@
 import { routeActions } from "./route.actions";
 import api from "../api";
 import * as types from "../constants/auth.constants";
-
-const {
-  REGISTER_REQUEST_START,
-  REGISTER_REQUEST_SUCCESS,
-  REGISTER_REQUEST_FAIL,
-  LOGIN_REQUEST_START,
-  LOGIN_REQUEST_SUCCESS,
-  LOGIN_REQUEST_FAIL,
-} = types;
+import * as toastSettings from "../constants/toast.constants";
+import { toast } from "react-toastify";
 
 const login = (data) => async (dispatch) => {
   try {
-    dispatch({ type: LOGIN_REQUEST_START, payload: null });
+    dispatch({ type: types.LOGIN_REQUEST_START, payload: null });
     const res = await api.post("auth/login", data);
     localStorage.setItem("accessToken", res.data.data.token);
     api.defaults.headers["authorization"] =
@@ -21,26 +14,35 @@ const login = (data) => async (dispatch) => {
     dispatch(routeActions.redirect("/"));
     // console.log(res);
     dispatch({
-      type: LOGIN_REQUEST_SUCCESS,
+      type: types.LOGIN_REQUEST_SUCCESS,
       payload: res.data.data.token,
     });
+    toast.success("Logged in!", toastSettings.toastSettings);
   } catch (error) {
-    dispatch({ type: LOGIN_REQUEST_FAIL, payload: null });
+    dispatch({ type: types.LOGIN_REQUEST_FAIL, payload: null });
     console.log(error.message);
+    toast.error(
+      "Wrong email or password. Please try again.",
+      toastSettings.toastSettings
+    );
   }
 };
 
 const register = (data) => async (dispatch) => {
   try {
-    dispatch({ type: REGISTER_REQUEST_START, payload: null });
+    dispatch({ type: types.REGISTER_REQUEST_START, payload: null });
     const res = await api.post("/users", data);
     console.log(res.data);
 
     dispatch(routeActions.redirect("/login"));
 
-    dispatch({ type: REGISTER_REQUEST_SUCCESS, payload: null });
+    dispatch({ type: types.REGISTER_REQUEST_SUCCESS, payload: null });
+    toast.success(
+      "Account created! Please log in.",
+      toastSettings.toastSettings
+    );
   } catch (err) {
-    dispatch({ type: REGISTER_REQUEST_FAIL, payload: null });
+    dispatch({ type: types.REGISTER_REQUEST_FAIL, payload: null });
     console.log("REGISTER ERROR: ", err.message);
   }
 };

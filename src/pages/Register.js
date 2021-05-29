@@ -40,7 +40,7 @@ const Register = () => {
       <h3 className="subtitle">create your account</h3>
       <form
         className="form--flex form--login"
-        // autoComplete="off"
+        autoComplete="off"
         onSubmit={handleRegisterSubmit}
       >
         <input
@@ -48,12 +48,13 @@ const Register = () => {
           placeholder="Name"
           id="name"
           name="name"
+          maxLength="25"
           required
           ref={nameInputRef}
           className="default"
         />
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           id="email"
           name="email"

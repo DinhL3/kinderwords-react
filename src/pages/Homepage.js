@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { userActions } from "../redux/actions/user.actions";
+import * as toastSettings from "../redux/constants/toast.constants";
 import api from "../redux/api";
+import { toast } from "react-toastify";
 
 import BeatLoader from "react-spinners/BeatLoader";
 import useCollapse from "react-collapsed";
@@ -28,6 +30,7 @@ const Homepage = () => {
     localStorage.clear();
     delete api.defaults.headers.common["authorization"];
     history.push("/");
+    toast.error("You are logged out.", toastSettings.toastSettings);
   };
 
   const handleViewRequestsClick = () => history.push("/requests");

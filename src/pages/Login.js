@@ -47,7 +47,7 @@ const Login = () => {
         onSubmit={handleLoginSubmit}
       >
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           id="email"
           name="email"
