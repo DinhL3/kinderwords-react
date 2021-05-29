@@ -32,7 +32,7 @@ const Inbox = () => {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -46,7 +46,7 @@ const Inbox = () => {
           <BeatLoader color={"white"} />
         </div>
       ) : replies.length === 0 ? (
-        <div className="container--flex">
+        <div className="container--flex opacity">
           <p className="general-scaling-text">
             You don&apos;t have any replies yet
           </p>
@@ -73,15 +73,11 @@ const Inbox = () => {
                   </div>
 
                   <div className="letter-btn-bar">
-                    <button className="default btn">
-                      <span className="material-icons" onClick={goPrevious}>
-                        arrow_left
-                      </span>
+                    <button className="default btn" onClick={goPrevious}>
+                      <span className="material-icons">arrow_left</span>
                     </button>
-                    <button className="default btn">
-                      <span className="material-icons" onClick={goNext}>
-                        arrow_right
-                      </span>
+                    <button className="default btn" onClick={goNext}>
+                      <span className="material-icons">arrow_right</span>
                     </button>
                   </div>
                 </div>

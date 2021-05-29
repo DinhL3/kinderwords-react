@@ -37,7 +37,7 @@ const Requests = () => {
     dots: false,
     infinite: true,
     fade: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -67,10 +67,8 @@ const Requests = () => {
                   </div>
 
                   <div className="letter-btn-bar">
-                    <button className="default btn">
-                      <span className="material-icons" onClick={goPrevious}>
-                        arrow_left
-                      </span>
+                    <button className="default btn" onClick={goPrevious}>
+                      <span className="material-icons">arrow_left</span>
                     </button>
                     <button
                       className="default btn btn--reply"
@@ -80,10 +78,8 @@ const Requests = () => {
                     >
                       <span className="material-icons">reply</span>Reply
                     </button>
-                    <button className="default btn">
-                      <span className="material-icons" onClick={goNext}>
-                        arrow_right
-                      </span>
+                    <button className="default btn" onClick={goNext}>
+                      <span className="material-icons">arrow_right</span>
                     </button>
                   </div>
                 </div>

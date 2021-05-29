@@ -11,6 +11,7 @@ import Requests from "./pages/Requests";
 import CreateRequest from "./pages/CreateRequest";
 import Inbox from "./pages/Inbox";
 import CreateReply from "./pages/CreateReply";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             exact
             component={CreateReply}
           />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>
