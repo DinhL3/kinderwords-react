@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { replyActions } from "../redux/actions/reply.actions";
-import BackBtn from "../components/BackBtn";
+import BackBtnHome from "../components/BackBtnHome";
 import BeatLoader from "react-spinners/BeatLoader";
 
 import Slider from "react-slick";
@@ -48,7 +48,7 @@ const Inbox = () => {
       transition={{ duration: 0.7 }}
     >
       <div className="container">
-        <BackBtn />
+        <BackBtnHome />
         {loadingReplies ? (
           <div className="container--flex">
             <BeatLoader color={"white"} />

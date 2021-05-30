@@ -31,3 +31,7 @@
   @include d-flex(row, center, center);
   margin-top: 1rem;
 }
+
+.page-header {
+  @include d-flex(row, center, center);
+}

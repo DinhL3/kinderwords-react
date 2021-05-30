@@ -4,7 +4,7 @@ const initialState = {
   loadingReplies: true,
   //   loadingSingleReply: true,
   replies: [],
-  newReply: {},
+  newReply: [],
 };
 
 const replyReducer = (state = initialState, action) => {

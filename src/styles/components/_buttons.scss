@@ -44,6 +44,15 @@
   }
 }
 
+.link__header {
+  margin-left: 0.5rem;
+  transition: 0.3s;
+  &:hover {
+    color: $red;
+    transform: scale(1.15);
+  }
+}
+
 .container--flex {
   .btn:last-child {
     margin-bottom: 0 !important;

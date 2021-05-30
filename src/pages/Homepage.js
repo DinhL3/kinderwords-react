@@ -56,7 +56,11 @@ const Homepage = () => {
           </div>
         ) : (
           <div className="container--flex">
-            <span className="page-header">Welcome, {user.name}</span>
+            <span className="page-header">
+              Welcome, {user.name}{" "}
+              <span className="material-icons link__header">edit</span>
+            </span>
+
             <button
               className="default btn btn--menu"
               onClick={handleViewRequestsClick}
@@ -67,7 +71,7 @@ const Homepage = () => {
               className="default btn btn--menu"
               onClick={handleCreateRequestClick}
             >
-              <span className="material-icons">edit</span>
+              <span className="material-icons">history_edu</span>
               Create Request
             </button>
             <button

@@ -5,8 +5,7 @@ const initialState = {
   loadingSingleRequest: true,
   requests: [],
   newRequest: [],
-  newSingleRequest: {},
-  newReply: {},
+  singleRequest: {},
 };
 
 const requestReducer = (state = initialState, action) => {

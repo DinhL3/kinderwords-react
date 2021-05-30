@@ -54,7 +54,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 62%;
-  height: 62%;
+  height: 50%;
   resize: none;
   font-family: $font !important;
   color: white;
@@ -71,4 +71,8 @@
   bottom: 5em;
   right: 5em;
   text-transform: uppercase;
+}
+
+.form__input--reply {
+  color: $blue;
 }

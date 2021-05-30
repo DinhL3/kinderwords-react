@@ -1,6 +1,7 @@
 import api from "../api";
 import * as types from "../constants/reply.constants";
-// import { routeActions } from "./route.action";
+import { routeActions } from "./route.actions";
+import { toast } from "react-toastify";
 
 const getInbox = () => async (dispatch) => {
   try {
@@ -17,6 +18,24 @@ const getInbox = () => async (dispatch) => {
   }
 };
 
+const newReply = (id, data) => async (dispatch) => {
+  try {
+    dispatch({ type: types.NEWREPLY_REQUEST_START, payload: null });
+    await api.post(`/replies/requests/${id}`, data);
+    // console.log("New request posted: ", res.data);
+    dispatch(routeActions.redirect("/requests"));
+    dispatch({
+      type: types.NEWREPLY_REQUEST_SUCCESS,
+      payload: null,
+    });
+    toast.success("Your reply is sent. Thank you!");
+  } catch (err) {
+    dispatch({ type: types.NEWREPLY_REQUEST_FAIL, payload: null });
+    console.log("Error posting reply", err.message);
+  }
+};
+
 export const replyActions = {
   getInbox,
+  newReply,
 };

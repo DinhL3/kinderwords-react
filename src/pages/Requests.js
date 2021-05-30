@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { requestActions } from "../redux/actions/request.actions";
-import BackBtn from "../components/BackBtn";
+import BackBtnHome from "../components/BackBtnHome";
 import BeatLoader from "react-spinners/BeatLoader";
 
 import Slider from "react-slick";
@@ -53,7 +53,7 @@ const Requests = () => {
       transition={{ duration: 0.7 }}
     >
       <div className="container">
-        <BackBtn />
+        <BackBtnHome />
         {loadingRequests ? (
           <div className="container--flex">
             <BeatLoader color={"white"} className="spinner" />

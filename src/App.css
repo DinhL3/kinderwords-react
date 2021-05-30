@@ -109,6 +109,13 @@
   margin-top: 1rem;
 }
 
+.page-header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 .default {
   background: transparent;
   border: 2px solid white;
@@ -153,6 +160,15 @@
 }
 .link:hover {
   color: #e77171;
+}
+
+.link__header {
+  margin-left: 0.5rem;
+  transition: 0.3s;
+}
+.link__header:hover {
+  color: #e77171;
+  transform: scale(1.15);
 }
 
 .container--flex .btn:last-child {
@@ -214,7 +230,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 62%;
-  height: 62%;
+  height: 50%;
   resize: none;
   font-family: "Comic Neue", cursive !important;
   color: white;
@@ -231,6 +247,10 @@
   bottom: 5em;
   right: 5em;
   text-transform: uppercase;
+}
+
+.form__input--reply {
+  color: #374759;
 }
 
 .title {
@@ -253,6 +273,14 @@
 
 .material-icons {
   margin-right: 0.5rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.blue {
+  color: #374759;
 }
 
 .slider-container {
