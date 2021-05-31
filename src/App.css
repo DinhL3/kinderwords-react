@@ -253,6 +253,15 @@
   color: #374759;
 }
 
+.form__heading {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.form--change-name input {
+  width: 13rem;
+}
+
 .title {
   font-size: 2.5rem;
 }
@@ -495,6 +504,7 @@
 }
 .my-request {
   overflow-wrap: break-word;
+  max-width: 91%;
 }
 
 .Toastify__toast {

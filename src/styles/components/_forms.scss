@@ -76,3 +76,14 @@
 .form__input--reply {
   color: $blue;
 }
+
+.form__heading {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.form--change-name {
+  input {
+    width: 13rem;
+  }
+}

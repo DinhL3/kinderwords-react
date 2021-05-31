@@ -56,7 +56,7 @@ const Register = () => {
             placeholder="Name"
             id="name"
             name="name"
-            maxLength="25"
+            maxLength="15"
             required
             ref={nameInputRef}
             className="default"

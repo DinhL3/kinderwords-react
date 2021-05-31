@@ -37,6 +37,7 @@ const Homepage = () => {
   const handleViewRequestsClick = () => history.push("/requests");
   const handleCreateRequestClick = () => history.push("/create_request");
   const handleInboxClick = () => history.push("/inbox");
+  const handlePencilClick = () => history.push("/user");
 
   useEffect(() => {
     dispatch(userActions.getMyProfile());
@@ -58,7 +59,12 @@ const Homepage = () => {
           <div className="container--flex">
             <span className="page-header">
               Welcome, {user.name}{" "}
-              <span className="material-icons link__header">edit</span>
+              <span
+                className="material-icons link__header"
+                onClick={handlePencilClick}
+              >
+                edit
+              </span>
             </span>
 
             <button

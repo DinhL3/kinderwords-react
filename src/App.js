@@ -16,12 +16,13 @@ import CreateRequest from "./pages/CreateRequest";
 import Inbox from "./pages/Inbox";
 import CreateReply from "./pages/CreateReply";
 import NotFound from "./pages/NotFound";
+import User from "./pages/User";
 
 function App() {
   return (
     <div className="App">
-      {/* <div id="stars"></div>
-      <div id="stars2"></div> */}
+      <div id="stars"></div>
+      <div id="stars2"></div>
       <Router>
         <AnimatePresence>
           <Switch>
@@ -40,6 +41,7 @@ function App() {
               exact
               component={CreateReply}
             />
+            <ProtectedRoute path="/user" exact component={User} />
             <Route component={NotFound} />
           </Switch>
         </AnimatePresence>
