@@ -20,8 +20,8 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
-      <div id="stars"></div>
-      <div id="stars2"></div>
+      {/* <div id="stars"></div>
+      <div id="stars2"></div> */}
       <Router>
         <AnimatePresence>
           <Switch>

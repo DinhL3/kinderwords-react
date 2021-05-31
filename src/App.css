@@ -332,6 +332,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 60%;
+  overflow-wrap: break-word;
 }
 
 .reply p {
@@ -491,6 +493,10 @@
     font-size: 1.5rem;
   }
 }
+.my-request {
+  overflow-wrap: break-word;
+}
+
 .Toastify__toast {
   background: transparent !important;
   font-family: "Comic Neue", cursive !important;
