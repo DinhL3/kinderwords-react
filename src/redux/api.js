@@ -4,7 +4,7 @@ import axios from "axios";
 // import { toast } from "react-toastify";
 
 const api = axios.create({
-  baseURL: `http://${process.env.REACT_APP_HEROKU_APP_NAME}.herokuapp.com/`,
+  baseURL: `https://${process.env.REACT_APP_HEROKU_APP_NAME}.herokuapp.com/`,
   headers: {
     "Content-Type": "application/json",
     authorization: "Bearer " + localStorage.getItem("accessToken"),
