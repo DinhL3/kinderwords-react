@@ -79,7 +79,7 @@ const Inbox = () => {
                     <div className="letter-container">
                       <img
                         className="request-bg"
-                        src={`${process.env.PUBLIC_URL}/reply.png`}
+                        src={`${process.env.PUBLIC_URL}/reply.jpg`}
                       />
                       <div className="letter-content reply">
                         <p>{reply.content}</p>

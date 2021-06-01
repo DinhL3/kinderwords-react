@@ -80,7 +80,7 @@ const CreateReply = () => {
                 <div
                   className="form__square"
                   style={{
-                    background: `url(${process.env.PUBLIC_URL + "/reply.png"})`,
+                    background: `url(${process.env.PUBLIC_URL + "/reply.jpg"})`,
                   }}
                 >
                   <textarea

@@ -73,7 +73,7 @@ const CreateRequest = () => {
                   className="form__square"
                   style={{
                     background: `url(${
-                      process.env.PUBLIC_URL + "/request.png"
+                      process.env.PUBLIC_URL + "/request.jpg"
                     })`,
                   }}
                 >

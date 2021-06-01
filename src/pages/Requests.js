@@ -72,7 +72,7 @@ const Requests = () => {
                     <div className="letter-container">
                       <img
                         className="request-bg"
-                        src={`${process.env.PUBLIC_URL}/request.png`}
+                        src={`${process.env.PUBLIC_URL}/request.jpg`}
                       />
                       <div className="letter-content">
                         <p>{request.content}</p>
