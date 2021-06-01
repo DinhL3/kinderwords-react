@@ -59,42 +59,49 @@ const Requests = () => {
             <BeatLoader color={"white"} className="spinner" />
           </div>
         ) : (
-          <div className="slider-container">
-            <Slider ref={sliderRef} {...settings}>
-              {requests.map((request) => (
-                <div className="slide" key={request._id}>
-                  <div className="letter-container">
-                    <img
-                      className="request-bg"
-                      src={`${process.env.PUBLIC_URL}/request.png`}
-                    />
-                    <div className="letter-content">
-                      <p>{request.content}</p>
-                      <br />
-                      <p className="signature">- {request.user.name[0]}</p>
-                    </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="slider-container">
+              <Slider ref={sliderRef} {...settings}>
+                {requests.map((request) => (
+                  <div className="slide" key={request._id}>
+                    <div className="letter-container">
+                      <img
+                        className="request-bg"
+                        src={`${process.env.PUBLIC_URL}/request.png`}
+                      />
+                      <div className="letter-content">
+                        <p>{request.content}</p>
+                        <br />
+                        <p className="signature">- {request.user.name[0]}</p>
+                      </div>
 
-                    <div className="letter-btn-bar">
-                      <button className="default btn" onClick={goPrevious}>
-                        <span className="material-icons">arrow_left</span>
-                      </button>
-                      <button
-                        className="default btn btn--reply"
-                        onClick={() =>
-                          history.push(`create_reply/${request._id}`)
-                        }
-                      >
-                        <span className="material-icons">reply</span>Reply
-                      </button>
-                      <button className="default btn" onClick={goNext}>
-                        <span className="material-icons">arrow_right</span>
-                      </button>
+                      <div className="letter-btn-bar">
+                        <button className="default btn" onClick={goPrevious}>
+                          <span className="material-icons">arrow_left</span>
+                        </button>
+                        <button
+                          className="default btn btn--reply"
+                          onClick={() =>
+                            history.push(`create_reply/${request._id}`)
+                          }
+                        >
+                          <span className="material-icons">reply</span>Reply
+                        </button>
+                        <button className="default btn" onClick={goNext}>
+                          <span className="material-icons">arrow_right</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
+                ))}
+              </Slider>
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.div>

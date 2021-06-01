@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import axios from "axios";
 // import { toast } from "react-toastify";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: `http://${process.env.REACT_APP_HEROKU_APP_NAME}.herokuapp.com/`,
   headers: {
     "Content-Type": "application/json",
     authorization: "Bearer " + localStorage.getItem("accessToken"),

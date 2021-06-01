@@ -54,39 +54,48 @@ const CreateRequest = () => {
             <BeatLoader color={"white"} className="spinner" />
           </div>
         ) : (
-          <div className="container--flex">
-            <form
-              className="form--flex form--request"
-              onSubmit={handleRequestSubmit}
-            >
-              <div className="default my-request">
-                <p>What are you worried about?</p>
-                <p>Maybe someone else is too.</p>
-              </div>
-              <div
-                className="form__square"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL + "/request.png"})`,
-                }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="container--flex">
+              <form
+                className="form--flex form--request"
+                onSubmit={handleRequestSubmit}
               >
-                <textarea
-                  type="text"
-                  className="form__input form__input--request"
-                  id="content"
-                  name="content"
-                  required
-                  maxLength="180"
-                  rows="10"
-                  placeholder="Enter text..."
-                  ref={contentInputRef}
-                />
-              </div>
-              <p className="form__signature">- {user.name[0]}</p>
-              <button className="default btn" type="submit">
-                <span className="material-icons">send</span>Send
-              </button>
-            </form>
-          </div>
+                <div className="default my-request">
+                  <p>What are you worried about?</p>
+                  <p>Maybe someone else is too.</p>
+                </div>
+                <div
+                  className="form__square"
+                  style={{
+                    background: `url(${
+                      process.env.PUBLIC_URL + "/request.png"
+                    })`,
+                  }}
+                >
+                  <textarea
+                    type="text"
+                    className="form__input form__input--request"
+                    id="content"
+                    name="content"
+                    required
+                    maxLength="180"
+                    rows="10"
+                    placeholder="Enter text..."
+                    ref={contentInputRef}
+                  />
+                </div>
+                <p className="form__signature">- {user.name[0]}</p>
+                <button className="default btn" type="submit">
+                  <span className="material-icons">send</span>Send
+                </button>
+              </form>
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.div>

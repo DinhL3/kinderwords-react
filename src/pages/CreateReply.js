@@ -61,37 +61,44 @@ const CreateReply = () => {
             <BeatLoader color={"white"} className="spinner" />
           </div>
         ) : (
-          <div className="container--flex">
-            <form
-              className="form--flex form--request"
-              onSubmit={handleReplySubmit}
-            >
-              <div className="default my-request">
-                <p>Replying to request:</p>
-                <p>{singleRequest.content}</p>
-                <p className="uppercase">- {singleRequest.user.name[0]}</p>
-              </div>
-              <div
-                className="form__square"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL + "/reply.png"})`,
-                }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="container--flex">
+              <form
+                className="form--flex form--request"
+                onSubmit={handleReplySubmit}
               >
-                <textarea
-                  type="text"
-                  className="form__input form__input--reply"
-                  required
-                  maxLength="180"
-                  placeholder="Enter text..."
-                  ref={contentInputRef}
-                />
-              </div>
-              <p className="form__signature blue">- {user.name[0]}</p>
-              <button className="default btn">
-                <span className="material-icons">send</span>Send
-              </button>
-            </form>
-          </div>
+                <div className="default my-request">
+                  <p>Replying to request:</p>
+                  <p>{singleRequest.content}</p>
+                  <p className="uppercase">- {singleRequest.user.name[0]}</p>
+                </div>
+                <div
+                  className="form__square"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL + "/reply.png"})`,
+                  }}
+                >
+                  <textarea
+                    type="text"
+                    className="form__input form__input--reply"
+                    required
+                    maxLength="180"
+                    placeholder="Enter text..."
+                    ref={contentInputRef}
+                  />
+                </div>
+                <p className="form__signature blue">- {user.name[0]}</p>
+                <button className="default btn">
+                  <span className="material-icons">send</span>Send
+                </button>
+              </form>
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.div>

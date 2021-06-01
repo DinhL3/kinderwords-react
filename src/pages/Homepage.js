@@ -56,55 +56,62 @@ const Homepage = () => {
             <BeatLoader color={"white"} />
           </div>
         ) : (
-          <div className="container--flex">
-            <span className="page-header">
-              Welcome, {user.name}{" "}
-              <span
-                className="material-icons link__header"
-                onClick={handlePencilClick}
-              >
-                edit
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="container--flex">
+              <span className="page-header">
+                Welcome, {user.name}{" "}
+                <span
+                  className="material-icons link__header"
+                  onClick={handlePencilClick}
+                >
+                  edit
+                </span>
               </span>
-            </span>
 
-            <button
-              className="default btn btn--menu"
-              onClick={handleViewRequestsClick}
-            >
-              <span className="material-icons">search</span>View Requests
-            </button>
-            <button
-              className="default btn btn--menu"
-              onClick={handleCreateRequestClick}
-            >
-              <span className="material-icons">history_edu</span>
-              Create Request
-            </button>
-            <button
-              className="default btn btn--menu"
-              onClick={handleInboxClick}
-            >
-              <span className="material-icons">mail</span>
-              Inbox
-            </button>
-            <button
-              className="default btn btn--menu btn--settings"
-              {...getToggleProps()}
-            >
-              <span className="material-icons">settings</span>
-              Settings
-            </button>
-            <div {...getCollapseProps()}>
-              {renderChildren && (
-                <div className="menu-expand" onClick={handleLogOut}>
-                  <button className="default btn btn--menu">
-                    <span className="material-icons">logout</span>
-                    Log Out
-                  </button>
-                </div>
-              )}
+              <button
+                className="default btn btn--menu"
+                onClick={handleViewRequestsClick}
+              >
+                <span className="material-icons">search</span>View Requests
+              </button>
+              <button
+                className="default btn btn--menu"
+                onClick={handleCreateRequestClick}
+              >
+                <span className="material-icons">history_edu</span>
+                Create Request
+              </button>
+              <button
+                className="default btn btn--menu"
+                onClick={handleInboxClick}
+              >
+                <span className="material-icons">mail</span>
+                Inbox
+              </button>
+              <button
+                className="default btn btn--menu btn--settings"
+                {...getToggleProps()}
+              >
+                <span className="material-icons">settings</span>
+                Settings
+              </button>
+              <div {...getCollapseProps()}>
+                {renderChildren && (
+                  <div className="menu-expand" onClick={handleLogOut}>
+                    <button className="default btn btn--menu">
+                      <span className="material-icons">logout</span>
+                      Log Out
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </motion.div>

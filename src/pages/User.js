@@ -38,19 +38,19 @@ const User = () => {
   }, [dispatch, history, redirectTo]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.7 }}
-    >
-      <div className="container">
-        <BackBtn />
-        {loadingUser ? (
-          <div className="container--flex">
-            <BeatLoader color={"white"} />
-          </div>
-        ) : (
+    <div className="container">
+      <BackBtn />
+      {loadingUser ? (
+        <div className="container--flex">
+          <BeatLoader color={"white"} />
+        </div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           <div className="container--flex">
             <h2 className="form__heading">Change your name, {user.name}?</h2>
             <form
@@ -73,9 +73,9 @@ const User = () => {
               </button>
             </form>
           </div>
-        )}
-      </div>
-    </motion.div>
+        </motion.div>
+      )}
+    </div>
   );
 };
 

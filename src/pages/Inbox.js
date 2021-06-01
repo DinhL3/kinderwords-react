@@ -62,37 +62,44 @@ const Inbox = () => {
             <p className="general-scaling-text">₍ ᐢ. ̫ .⑅ᐢ ₎</p>
           </div>
         ) : (
-          <div className="slider-container">
-            <Slider ref={sliderRef} {...settings}>
-              {replies.map((reply) => (
-                <div className="slide" key={reply._id}>
-                  <div className="default my-request">
-                    <p>Your Request:</p>
-                    <p>{reply.request.content}</p>
-                  </div>
-                  <div className="letter-container">
-                    <img
-                      className="request-bg"
-                      src={`${process.env.PUBLIC_URL}/reply.png`}
-                    />
-                    <div className="letter-content reply">
-                      <p>{reply.content}</p>
-                      <p className="signature">- {reply.user.name[0]}</p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="slider-container">
+              <Slider ref={sliderRef} {...settings}>
+                {replies.map((reply) => (
+                  <div className="slide" key={reply._id}>
+                    <div className="default my-request">
+                      <p>Your Request:</p>
+                      <p>{reply.request.content}</p>
                     </div>
+                    <div className="letter-container">
+                      <img
+                        className="request-bg"
+                        src={`${process.env.PUBLIC_URL}/reply.png`}
+                      />
+                      <div className="letter-content reply">
+                        <p>{reply.content}</p>
+                        <p className="signature">- {reply.user.name[0]}</p>
+                      </div>
 
-                    <div className="letter-btn-bar">
-                      <button className="default btn" onClick={goPrevious}>
-                        <span className="material-icons">arrow_left</span>
-                      </button>
-                      <button className="default btn" onClick={goNext}>
-                        <span className="material-icons">arrow_right</span>
-                      </button>
+                      <div className="letter-btn-bar">
+                        <button className="default btn" onClick={goPrevious}>
+                          <span className="material-icons">arrow_left</span>
+                        </button>
+                        <button className="default btn" onClick={goNext}>
+                          <span className="material-icons">arrow_right</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
+                ))}
+              </Slider>
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.div>
