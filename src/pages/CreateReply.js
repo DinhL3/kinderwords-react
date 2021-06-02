@@ -78,7 +78,6 @@ const CreateReply = () => {
                 onSubmit={handleReplySubmit}
               >
                 <div className="default my-request">
-                  <p>Replying to request:</p>
                   <p>{singleRequest.content}</p>
                   <p className="uppercase">- {singleRequest.user.name[0]}</p>
                 </div>

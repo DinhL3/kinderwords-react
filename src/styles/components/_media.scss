@@ -111,6 +111,13 @@
     top: 0;
     text-shadow: $text-shadow;
   }
+  .btn,
+  input {
+    font-size: 1rem !important;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
 }
 
 @media (min-height: $break-laptop) {
