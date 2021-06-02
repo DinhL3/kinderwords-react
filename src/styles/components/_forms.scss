@@ -82,8 +82,6 @@
   font-weight: 400;
 }
 
-.form--change-name {
-  input {
-    width: 13rem;
-  }
+.input--change-name {
+  max-width: 13rem;
 }

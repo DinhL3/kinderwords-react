@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { authActions } from "../redux/actions/auth.actions";
@@ -14,6 +14,10 @@ const Register = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const redirectTo = useSelector((state) => state.route.redirectTo);
+
+  const [submitStatus, setSubmitStatus] = useState("Create");
+  const [disabled, setDisabled] = useState("");
+
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     const name = nameInputRef.current.value;
@@ -25,7 +29,8 @@ const Register = () => {
       password: password,
     };
     dispatch(authActions.register(object));
-    e.target.reset();
+    setDisabled("true");
+    setSubmitStatus("Creating...");
   };
 
   useEffect(() => {
@@ -59,8 +64,9 @@ const Register = () => {
             maxLength="15"
             required
             ref={nameInputRef}
-            className="default"
+            className="default input--change-name mb-0"
           />
+          <p className="mb-07">Your name is visible to only you</p>
           <input
             type="email"
             placeholder="Email"
@@ -79,8 +85,8 @@ const Register = () => {
             ref={passwordInputRef}
             className="default"
           />
-          <button className="default btn" type="submit">
-            Create Account
+          <button className="default btn" type="submit" disabled={disabled}>
+            {submitStatus}
           </button>
         </form>
       </div>

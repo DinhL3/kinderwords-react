@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { useParams } from "react-router";
@@ -27,6 +27,10 @@ const CreateReply = () => {
   const { id } = useParams();
 
   const contentInputRef = useRef();
+
+  const [submitStatus, setSubmitStatus] = useState("Send");
+  const [disabled, setDisabled] = useState("");
+
   const handleReplySubmit = (e) => {
     e.preventDefault();
     const content = contentInputRef.current.value;
@@ -35,7 +39,8 @@ const CreateReply = () => {
       content: content,
     };
     dispatch(replyActions.newReply(id, object));
-    e.target.reset();
+    setDisabled("true");
+    setSubmitStatus("Sending...");
   };
 
   useEffect(() => {
@@ -93,8 +98,13 @@ const CreateReply = () => {
                   />
                 </div>
                 <p className="form__signature blue">- {user.name[0]}</p>
-                <button className="default btn">
-                  <span className="material-icons">send</span>Send
+                <button
+                  className="default btn"
+                  type="submit"
+                  disabled={disabled}
+                >
+                  <span className="material-icons">send</span>
+                  {submitStatus}
                 </button>
               </form>
             </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { authActions } from "../redux/actions/auth.actions";
@@ -12,6 +12,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const redirectTo = useSelector((state) => state.route.redirectTo);
+
+  const [submitStatus, setSubmitStatus] = useState("Log In");
+  const [disabled, setDisabled] = useState("");
 
   const handleRegisterClick = () => {
     history.push(`/register`);
@@ -28,7 +31,8 @@ const Login = () => {
     // console.log(object);
 
     dispatch(authActions.login(object));
-    e.target.reset();
+    setDisabled("true");
+    setSubmitStatus("Logging in...");
   };
 
   useEffect(() => {
@@ -72,8 +76,8 @@ const Login = () => {
             ref={passwordInputRef}
             className="default"
           />
-          <button className="default btn" type="submit">
-            Log In
+          <button className="default btn" type="submit" disabled={disabled}>
+            {submitStatus}
           </button>
           <span>
             Don&apos;t have an account?{" "}

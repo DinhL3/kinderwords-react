@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { requestActions } from "../redux/actions/request.actions";
@@ -20,6 +20,8 @@ const CreateRequest = () => {
   const redirectTo = useSelector((state) => state.route.redirectTo);
 
   const contentInputRef = useRef();
+  const [submitStatus, setSubmitStatus] = useState("Send");
+  const [disabled, setDisabled] = useState("");
 
   const handleRequestSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,8 @@ const CreateRequest = () => {
       content: content,
     };
     dispatch(requestActions.newRequest(object));
-    e.target.reset();
+    setDisabled("true");
+    setSubmitStatus("Sending...");
   };
 
   useEffect(() => {
@@ -90,8 +93,13 @@ const CreateRequest = () => {
                   />
                 </div>
                 <p className="form__signature">- {user.name[0]}</p>
-                <button className="default btn" type="submit">
-                  <span className="material-icons">send</span>Send
+                <button
+                  className="default btn"
+                  type="submit"
+                  disabled={disabled}
+                >
+                  <span className="material-icons">send</span>
+                  {submitStatus}
                 </button>
               </form>
             </div>

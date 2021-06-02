@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { userActions } from "../redux/actions/user.actions";
@@ -18,6 +18,9 @@ const User = () => {
 
   const nameInputRef = useRef();
 
+  const [submitStatus, setSubmitStatus] = useState("OK");
+  const [disabled, setDisabled] = useState("");
+
   const handleUpdateProfileSubmit = (e) => {
     e.preventDefault();
     const name = nameInputRef.current.value;
@@ -25,7 +28,8 @@ const User = () => {
       name: name,
     };
     dispatch(userActions.updateMyProfile(object));
-    e.target.reset();
+    setDisabled("true");
+    setSubmitStatus("Changing...");
   };
 
   useEffect(() => {
@@ -54,7 +58,7 @@ const User = () => {
           <div className="container--flex">
             <h2 className="form__heading">Change your name, {user.name}?</h2>
             <form
-              className="form--flex form--login form--change-name"
+              className="form--flex form--login"
               autoComplete="off"
               onSubmit={handleUpdateProfileSubmit}
             >
@@ -66,10 +70,10 @@ const User = () => {
                 maxLength="15"
                 required
                 ref={nameInputRef}
-                className="default"
+                className="default input--change-name"
               />
-              <button className="default btn" type="submit">
-                OK
+              <button className="default btn" type="submit" disabled={disabled}>
+                {submitStatus}
               </button>
             </form>
           </div>

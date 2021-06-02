@@ -70,6 +70,14 @@
   margin-top: 1rem;
 }
 
+.mb-0 {
+  margin-bottom: 0.1rem !important;
+}
+
+.mb-07 {
+  margin-bottom: 0.7rem !important;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -141,6 +149,10 @@
 .btn:focus {
   transform: scale(1.15);
   border-color: #e77171;
+}
+.btn:disabled {
+  opacity: 0.6;
+  border-color: white;
 }
 
 .btn--back {
@@ -258,8 +270,8 @@
   font-weight: 400;
 }
 
-.form--change-name input {
-  width: 13rem;
+.input--change-name {
+  max-width: 13rem;
 }
 
 .title {
