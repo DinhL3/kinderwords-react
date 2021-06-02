@@ -446,7 +446,7 @@
   }
 
   .title {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   .form__input,
@@ -510,7 +510,7 @@ input {
   }
 
   .title {
-    font-size: 3.5rem;
+    font-size: 3.5rem !important;
   }
 }
 @media (min-height: 768px) {
