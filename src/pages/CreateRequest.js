@@ -21,7 +21,7 @@ const CreateRequest = () => {
 
   const contentInputRef = useRef();
   const [submitStatus, setSubmitStatus] = useState("Send");
-  const [disabled, setDisabled] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const handleRequestSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const CreateRequest = () => {
       content: content,
     };
     dispatch(requestActions.newRequest(object));
-    setDisabled("true");
+    setDisabled(true);
     setSubmitStatus("Sending...");
   };
 

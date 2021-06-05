@@ -29,7 +29,7 @@ const CreateReply = () => {
   const contentInputRef = useRef();
 
   const [submitStatus, setSubmitStatus] = useState("Send");
-  const [disabled, setDisabled] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const handleReplySubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const CreateReply = () => {
       content: content,
     };
     dispatch(replyActions.newReply(id, object));
-    setDisabled("true");
+    setDisabled(true);
     setSubmitStatus("Sending...");
   };
 

@@ -5,6 +5,7 @@ import { authActions } from "../redux/actions/auth.actions";
 import { routeActions } from "../redux/actions/route.actions";
 
 import { motion } from "framer-motion";
+import FacebookLogin from "react-facebook-login";
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -14,7 +15,7 @@ const Login = () => {
   const redirectTo = useSelector((state) => state.route.redirectTo);
 
   const [submitStatus, setSubmitStatus] = useState("Log In");
-  const [disabled, setDisabled] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const handleRegisterClick = () => {
     history.push(`/register`);
@@ -31,8 +32,12 @@ const Login = () => {
     // console.log(object);
 
     dispatch(authActions.login(object));
-    setDisabled("true");
+    setDisabled(true);
     setSubmitStatus("Logging in...");
+  };
+
+  const loginWithFacebook = () => {
+    dispatch(authActions.loginFacebookRequest());
   };
 
   useEffect(() => {
@@ -86,6 +91,15 @@ const Login = () => {
             </span>
           </span>
         </form>
+        <FacebookLogin
+          appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+          autoLoad={true}
+          fields="name,email"
+          callback={loginWithFacebook}
+          cssClass="default btn"
+          icon="fa-facebook"
+          className="default"
+        />
       </div>
     </motion.div>
   );

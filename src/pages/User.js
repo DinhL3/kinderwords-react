@@ -19,7 +19,7 @@ const User = () => {
   const nameInputRef = useRef();
 
   const [submitStatus, setSubmitStatus] = useState("OK");
-  const [disabled, setDisabled] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const handleUpdateProfileSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const User = () => {
       name: name,
     };
     dispatch(userActions.updateMyProfile(object));
-    setDisabled("true");
+    setDisabled(true);
     setSubmitStatus("Changing...");
   };
 

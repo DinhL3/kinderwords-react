@@ -16,7 +16,7 @@ const Register = () => {
   const redirectTo = useSelector((state) => state.route.redirectTo);
 
   const [submitStatus, setSubmitStatus] = useState("Create");
-  const [disabled, setDisabled] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const Register = () => {
       password: password,
     };
     dispatch(authActions.register(object));
-    setDisabled("true");
+    setDisabled(true);
     setSubmitStatus("Creating...");
   };
 
