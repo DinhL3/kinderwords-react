@@ -28,6 +28,18 @@
   }
 }
 
+.btn--simple {
+  margin-bottom: 1rem;
+  @include d-flex(row, center, center);
+  &:hover {
+    transform: scale(1.15);
+  }
+  &:disabled {
+    opacity: 0.6;
+    border-color: white;
+  }
+}
+
 .btn--back {
   position: absolute;
   top: 0;
@@ -65,4 +77,17 @@
 
 .btn--settings {
   margin-bottom: 0 !important;
+}
+
+// FACEBOOK GOOGLE BUTTONS
+.fa {
+  margin-right: 0.5rem;
+}
+
+.music-player {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 9999;
+  @include d-flex(row, center, center);
 }

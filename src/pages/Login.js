@@ -5,7 +5,8 @@ import { authActions } from "../redux/actions/auth.actions";
 import { routeActions } from "../redux/actions/route.actions";
 
 import { motion } from "framer-motion";
-import FacebookLogin from "react-facebook-login";
+// import FacebookLogin from "react-facebook-login";
+// import GoogleLogin from "react-google-login";
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -36,9 +37,9 @@ const Login = () => {
     setSubmitStatus("Logging in...");
   };
 
-  const loginWithFacebook = () => {
-    dispatch(authActions.loginFacebookRequest());
-  };
+  // const loginWithFacebook = () => {
+  //   dispatch(authActions.loginFacebookRequest());
+  // };
 
   useEffect(() => {
     if (redirectTo) {
@@ -59,7 +60,7 @@ const Login = () => {
         <h1 className="title">[Kinder Words]</h1>
         <h3 className="subtitle">write nice letters to real people</h3>
         <form
-          className="form--flex form--login"
+          className="form--flex form--login  mb-07"
           // autoComplete="off"
           onSubmit={handleLoginSubmit}
         >
@@ -84,22 +85,22 @@ const Login = () => {
           <button className="default btn" type="submit" disabled={disabled}>
             {submitStatus}
           </button>
-          <span>
-            Don&apos;t have an account?{" "}
-            <span className="default btn link" onClick={handleRegisterClick}>
-              Register
-            </span>
-          </span>
         </form>
-        <FacebookLogin
+        <span className="mb-07">
+          Don&apos;t have an account?{" "}
+          <span className="default link p-0" onClick={handleRegisterClick}>
+            Register
+          </span>
+        </span>
+        {/* <FacebookLogin
           appId={process.env.REACT_APP_FACEBOOK_APP_ID}
           autoLoad={true}
           fields="name,email"
           callback={loginWithFacebook}
           cssClass="default btn"
           icon="fa-facebook"
-          className="default"
-        />
+        /> */}
+        ,
       </div>
     </motion.div>
   );

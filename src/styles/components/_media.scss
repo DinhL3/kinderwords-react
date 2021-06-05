@@ -25,6 +25,17 @@
   .general-scaling-text {
     font-size: 1rem !important;
   }
+  .page-header {
+    font-size: 1.1rem !important;
+    .material-icons {
+      font-size: 1.1rem !important;
+    }
+  }
+  .music-player {
+    .material-icons {
+      font-size: 0.9rem;
+    }
+  }
 }
 
 @media (min-width: $break-tablet) and (max-width: $break-laptop) {
@@ -85,6 +96,17 @@
   .form__signature,
   .general-scaling-text {
     font-size: 1rem;
+  }
+  .page-header {
+    font-size: 1.1rem !important;
+    .material-icons {
+      font-size: 1.1rem !important;
+    }
+  }
+  .music-player {
+    .material-icons {
+      font-size: 0.9rem;
+    }
   }
 }
 
