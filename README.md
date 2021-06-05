@@ -1,2 +1,3 @@
 ## Kinder Words
-# kinderwords_react
+
+I will definitely write a full documentation one day xD
