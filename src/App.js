@@ -90,6 +90,7 @@ function App() {
           controls={false}
           loop={true}
           muted={muted}
+          volume={0.7}
         />
         <div className="music-player">
           <button

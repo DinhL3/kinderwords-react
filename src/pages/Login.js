@@ -5,7 +5,7 @@ import { authActions } from "../redux/actions/auth.actions";
 import { routeActions } from "../redux/actions/route.actions";
 
 import { motion } from "framer-motion";
-// import FacebookLogin from "react-facebook-login";
+import FacebookLogin from "react-facebook-login";
 // import GoogleLogin from "react-google-login";
 
 const Login = () => {
@@ -37,9 +37,9 @@ const Login = () => {
     setSubmitStatus("Logging in...");
   };
 
-  // const loginWithFacebook = () => {
-  //   dispatch(authActions.loginFacebookRequest());
-  // };
+  const loginWithFacebook = () => {
+    dispatch(authActions.loginFacebookRequest());
+  };
 
   useEffect(() => {
     if (redirectTo) {
@@ -92,15 +92,14 @@ const Login = () => {
             Register
           </span>
         </span>
-        {/* <FacebookLogin
+        <FacebookLogin
           appId={process.env.REACT_APP_FACEBOOK_APP_ID}
           autoLoad={true}
           fields="name,email"
           callback={loginWithFacebook}
           cssClass="default btn"
           icon="fa-facebook"
-        /> */}
-        ,
+        />
       </div>
     </motion.div>
   );
