@@ -27,8 +27,8 @@ const login = (data) => async (dispatch) => {
 const register = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.REGISTER_REQUEST_START, payload: null });
-    const res = await api.post("/users", data);
-    console.log(res.data);
+    await api.post("/users", data);
+    // console.log(res.data);
 
     dispatch(routeActions.redirect("/login"));
 
@@ -42,7 +42,7 @@ const register = (data) => async (dispatch) => {
 
 const loginFacebookRequest = (access_token) => async (dispatch) => {
   try {
-    console.log("accesstoekn", access_token);
+    // console.log("accesstoekn", access_token);
     dispatch({ type: types.LOGIN_FACEBOOK_START, payload: null });
     const res = await api.post("auth/login/facebook", { access_token });
     dispatch({ type: types.LOGIN_FACEBOOK_SUCCESS, payload: res.data.data });
