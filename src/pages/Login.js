@@ -38,7 +38,8 @@ const Login = () => {
   };
 
   const loginWithFacebook = () => {
-    dispatch(authActions.loginFacebookRequest());
+    console.log("ddd", process.env.REACT_APP_FACEBOOK_APP_ID);
+    dispatch(authActions.loginFacebookRequest(access_token));
   };
 
   useEffect(() => {

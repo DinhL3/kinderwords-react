@@ -42,6 +42,7 @@ const register = (data) => async (dispatch) => {
 
 const loginFacebookRequest = (access_token) => async (dispatch) => {
   try {
+    console.log("accesstoekn", access_token);
     dispatch({ type: types.LOGIN_FACEBOOK_START, payload: null });
     const res = await api.post("auth/login/facebook", { access_token });
     dispatch({ type: types.LOGIN_FACEBOOK_SUCCESS, payload: res.data.data });
