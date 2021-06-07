@@ -40,11 +40,12 @@ const register = (data) => async (dispatch) => {
   }
 };
 
-const loginFacebookRequest = (access_token) => async (dispatch) => {
+const loginFacebookRequest = (response) => async (dispatch) => {
   try {
     // console.log("accesstoekn", access_token);
     dispatch({ type: types.LOGIN_FACEBOOK_START, payload: null });
-    const res = await api.post("auth/login/facebook", { access_token });
+    const res = await api.post("auth/login/facebook", response);
+    localStorage.setItem("accessToken", res.data.data.token);
     dispatch({ type: types.LOGIN_FACEBOOK_SUCCESS, payload: res.data.data });
     api.defaults.headers["authorization"] =
       "Bearer " + res.data.data.accessToken;

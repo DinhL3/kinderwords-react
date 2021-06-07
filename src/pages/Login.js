@@ -39,7 +39,7 @@ const Login = () => {
 
   const loginWithFacebook = (res) => {
     console.log("resss", res);
-    dispatch(authActions.loginFacebookRequest(res.accessToken));
+    dispatch(authActions.loginFacebookRequest(res));
   };
 
   useEffect(() => {
