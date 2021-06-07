@@ -37,9 +37,9 @@ const Login = () => {
     setSubmitStatus("Logging in...");
   };
 
-  const loginWithFacebook = () => {
-    console.log("ddd", process.env.REACT_APP_FACEBOOK_APP_ID);
-    dispatch(authActions.loginFacebookRequest());
+  const loginWithFacebook = (res) => {
+    console.log("resss", res);
+    dispatch(authActions.loginFacebookRequest(res.access_token));
   };
 
   useEffect(() => {
