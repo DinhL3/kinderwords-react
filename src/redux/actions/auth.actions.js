@@ -58,4 +58,28 @@ const loginFacebookRequest = (response) => async (dispatch) => {
   }
 };
 
-export const authActions = { login, register, loginFacebookRequest };
+const loginGoogleRequest = (resFromGoogleLoginButton) => async (dispatch) => {
+  try {
+    // console.log("accesstoekn", access_token);
+    dispatch({ type: types.LOGIN_GOOGLE_START, payload: null });
+    console.log("Sent from Google login button: ", resFromGoogleLoginButton);
+    const res = await api.post("auth/login/google", resFromGoogleLoginButton);
+    // console.log(res);
+    localStorage.setItem("accessToken", res.data.data.token);
+    dispatch({ type: types.LOGIN_GOOGLE_SUCCESS, payload: res.data.data });
+    api.defaults.headers["authorization"] =
+      "Bearer " + res.data.data.accessToken;
+    toast.success("Logged in with Google!");
+  } catch (error) {
+    dispatch({ type: types.LOGIN_GOOGLE_FAIL, payload: null });
+    console.log(error.message);
+    toast.error("Login with Google failed. Please try again.");
+  }
+};
+
+export const authActions = {
+  login,
+  register,
+  loginFacebookRequest,
+  loginGoogleRequest,
+};
