@@ -6,7 +6,7 @@ import { routeActions } from "../redux/actions/route.actions";
 
 import { motion } from "framer-motion";
 // import FacebookLogin from "react-facebook-login";
-import GoogleLogin from "react-google-login";
+// import GoogleLogin from "react-google-login";
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -105,7 +105,7 @@ const Login = () => {
           cssClass="default btn"
           icon="fa-facebook"
         /> */}
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           onSuccess={loginWithGoogle}
           onFailure={(error) => {
@@ -121,7 +121,7 @@ const Login = () => {
               Login with Google
             </button>
           )}
-        />
+        /> */}
       </div>
     </motion.div>
   );
