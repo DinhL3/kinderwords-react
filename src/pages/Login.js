@@ -42,9 +42,9 @@ const Login = () => {
   //   dispatch(authActions.loginFacebookRequest(res));
   // };
 
-  const loginWithGoogle = (res) => {
-    dispatch(authActions.loginGoogleRequest(res));
-  };
+  // const loginWithGoogle = (res) => {
+  //   dispatch(authActions.loginGoogleRequest(res));
+  // };
 
   useEffect(() => {
     if (redirectTo) {
